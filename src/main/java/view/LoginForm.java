@@ -1,54 +1,52 @@
 package view;
 
+import view.catalog.Catalog;
+import java.awt.Color;
+
 public class LoginForm extends javax.swing.JFrame {
 
     public LoginForm() {
-        // Inicializa os componentes da interface gráfica
         initComponents();
-
-        // Centraliza a janela na tela
         this.setLocationRelativeTo(null);
-
-        // Impede que a janela seja redimensionada
         this.setResizable(false);
-
-        // Define que o layout será manual (sem layout manager)
         this.setLayout(null);
 
-        // Define o fundo do componente 'backgroundFrame' com uma imagem e tamanho especificado
+        // Configuração do frame de fundo
         backgroundFrame.setBackgroundFrame("images/background-login.svg", 660, 450);
 
-        // Configura o botão de login
-        btnLogin.setContentAreaFilled(false); // Remove o preenchimento interno
-        btnLogin.setBorderPainted(false);     // Remove a borda
-        btnLogin.setOpaque(false);            // Torna o botão transparente
+        // Configuração do botão de login
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setBorderPainted(false);
+        btnLogin.setOpaque(false);
+        btnLogin.setForeground(new Color(0, 0, 0, 0));
+        btnLogin.setFocusPainted(false);
 
-        // Configura o botão de registro
-        btnRegistrar.setContentAreaFilled(false); // Remove o preenchimento interno
-        btnRegistrar.setBorderPainted(false);     // Remove a borda
-        btnRegistrar.setOpaque(false);            // Torna o botão transparente
+        // Configuração do botão de registro
+        btnRegistrar.setContentAreaFilled(false);
+        btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setOpaque(false);
+        btnRegistrar.setForeground(new Color(0, 0, 0, 0));
+        btnRegistrar.setFocusPainted(false);
 
-        // Configura o campo de texto para o nome de usuário
-        txtUsername.setOpaque(false);  // Remove a opacidade de fundo
-        txtUsername.setBorder(null);   // Remove a borda (opcional)
-        txtUsername.setFocusable(true); // Permite que o campo receba foco
-
-        // Adiciona listener para eventos de foco no campo de texto
+        // Configuração do campo de texto de nome de usuário
+        txtUsername.setOpaque(false);
+        txtUsername.setBorder(null);
+        txtUsername.setFocusable(true);
         txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsernameFocusGained(evt); // Ação ao ganhar foco
+                txtUsernameFocusGained(evt);
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtUsernameFocusLost(evt); // Ação ao perder foco
+                txtUsernameFocusLost(evt);
             }
         });
-        
-        // Configura o campo de texto para o senha
-        txtSenha.setOpaque(false);  // Remove a opacidade de fundo
-        txtSenha.setBorder(null);   // Remove a borda (opcional)
+
+        // Configuração do campo de senha
+        txtSenha.setOpaque(false);
+        txtSenha.setBorder(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -64,7 +62,6 @@ public class LoginForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnPanel.setBackground(new java.awt.Color(255, 255, 255));
         pnPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUsername.setBorder(null);
@@ -76,8 +73,8 @@ public class LoginForm extends javax.swing.JFrame {
         txtSenha.setPreferredSize(new java.awt.Dimension(353, 30));
         pnPanel.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 238, -1, -1));
 
-        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnLogin.setText("Login");
         btnLogin.setBorder(null);
         btnLogin.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnLogin.setPreferredSize(new java.awt.Dimension(78, 33));
@@ -88,7 +85,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
         pnPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 284, -1, -1));
 
-        btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(null);
         btnRegistrar.setPreferredSize(new java.awt.Dimension(102, 33));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,24 +110,20 @@ public class LoginForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Evento disparado quando o campo de texto ganha foco
     private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {
-        // Se o texto atual for o texto de placeholder, limpa o campo
         if (txtUsername.getText().equals("Nome de usuário")) {
             txtUsername.setText("");
         }
     }
 
-// Evento disparado quando o campo de texto perde o foco
     private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {
-        // Se o campo estiver vazio ao perder o foco, restaura o texto de placeholder
         if (txtUsername.getText().equals("")) {
             txtUsername.setText("Nome de usuário");
         }
     }
     
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        ProductsForm goToProducts = new ProductsForm();
+        Catalog goToProducts = new Catalog();
         goToProducts.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -142,30 +135,6 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginForm().setVisible(true);
