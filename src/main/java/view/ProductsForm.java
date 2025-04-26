@@ -45,6 +45,8 @@ public class ProductsForm extends javax.swing.JFrame {
         labelReturn = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
+        labelPrescription = new javax.swing.JLabel();
+        comboPrescription = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,41 +118,52 @@ public class ProductsForm extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableProducts);
 
+        labelPrescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelPrescription.setText("Receita?");
+
+        comboPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPrescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPrescriptionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnExit))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(labelReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(60, 60, 60)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelPrescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(labelCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(labelQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
-                                    .addComponent(btnCreate)))
+                                .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtCode)
+                                .addComponent(txtCode, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                                 .addComponent(txtName)
                                 .addComponent(txtQuantity)
                                 .addComponent(txtPrice)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(19, 19, 19)
-                                    .addComponent(btnUpdate)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                                    .addComponent(btnDelete)
-                                    .addGap(29, 29, 29))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(labelReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(comboPrescription, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(72, 72, 72)
+                            .addComponent(btnCreate)
+                            .addGap(51, 51, 51)
+                            .addComponent(btnUpdate)
+                            .addGap(43, 43, 43)
+                            .addComponent(btnDelete)
+                            .addGap(29, 29, 29)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnExit)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -163,11 +176,11 @@ public class ProductsForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(btnExit)
-                        .addGap(46, 46, 46)
+                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labelCode)
                             .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,15 +196,19 @@ public class ProductsForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPrice)
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPrescription)
+                            .addComponent(comboPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCreate)
                             .addComponent(btnUpdate)
                             .addComponent(btnDelete))
-                        .addGap(47, 47, 47)
+                        .addGap(18, 18, 18)
                         .addComponent(labelReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(21, 21, 21)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnRead)))
@@ -228,9 +245,10 @@ public class ProductsForm extends javax.swing.JFrame {
             String nome = txtName.getText();
             String quantidade = txtQuantity.getText();
             double preco = Double.parseDouble(txtQuantity.getText());
+            String receita = comboPrescription.getSelectedItem().toString();
 
-            String comando = ("INSERT INTO mydb.products ( `product_name`, `product_quantity`, `product_price`) VALUES "
-                    + "('" + nome + "'," + quantidade + "," + preco + ");");
+            String comando = ("INSERT INTO mydb.products ( `product_name`, `product_quantity`, `product_price`, `product_prescription`) VALUES "
+                    + "('" + nome + "'," + quantidade + "," + preco + ",'" + receita + "');");
             System.out.println(comando);
             st.executeUpdate(comando);
             labelReturn.setText("Inclusão na Tabela com sucesso.");
@@ -260,9 +278,11 @@ public class ProductsForm extends javax.swing.JFrame {
             String nome = txtName.getText();
             String quantidade = txtQuantity.getText();
             String preco = txtPrice.getText();
+            String receita = comboPrescription.getSelectedItem().toString();
 
             Statement st = con.createStatement();
-            String comando = ("UPDATE mydb.products SET product_name = '" + nome + "', product_quantity = " + quantidade + ", product_price =" + preco +  " WHERE product_id = " + codigo + ";");
+            String comando = ("UPDATE mydb.products SET product_name = '" + nome + "', product_quantity = " + quantidade 
+                    + ", product_price =" + preco + ", product_prescription ='" + receita + "' WHERE product_id = " + codigo + ";");
             st.executeUpdate(comando);
             labelReturn.setText("Alteração na Tabela com sucesso.");
 
@@ -303,51 +323,52 @@ public class ProductsForm extends javax.swing.JFrame {
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         try {
-    String driverName = "com.mysql.cj.jdbc.Driver";
-    String serverName = "localhost:3306";
-    String mydatabase = "mydb";
-    String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
-    String usuario = "root";
-    String senha = "1234";
+            String driverName = "com.mysql.cj.jdbc.Driver";
+            String serverName = "localhost:3306";
+            String mydatabase = "mydb";
+            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String usuario = "root";
+            String senha = "1234";
 
-    Class.forName(driverName);
-    Connection con = DriverManager.getConnection(url, usuario, senha);
-    Statement st = con.createStatement();
-    
-    ResultSet rs = st.executeQuery("SELECT * FROM mydb.products;");
+            Class.forName(driverName);
+            Connection con = DriverManager.getConnection(url, usuario, senha);
+            Statement st = con.createStatement();
 
-    // Define colunas da tabela
-    tableModel.addColumn("ID");
-    tableModel.addColumn("Nome");
-    tableModel.addColumn("Quantidade");
-    tableModel.addColumn("Preço");
+            ResultSet rs = st.executeQuery("SELECT * FROM mydb.products;");
 
-    // Preenche os dados no modelo
-    while (rs.next()) {
-        int id = rs.getInt("product_id");
-        String nome = rs.getString("product_name");
-        int quantidade = rs.getInt("product_quantity");
-        double preco = rs.getDouble("product_price");
+            DefaultTableModel tableModel = new DefaultTableModel(
+                    new Object[]{"ID", "Nome", "Quantidade", "Preço", "Receita?"}, 0
+            );
 
-        Object[] row = {id, nome, quantidade, preco};
-        tableModel.addRow(row);
-    }
+            while (rs.next()) {
+                int id = rs.getInt("product_id");
+                String nome = rs.getString("product_name");
+                int quantidade = rs.getInt("product_quantity");
+                double preco = rs.getDouble("product_price");
+                String receita = rs.getString("product_prescription");
 
-    // Define o modelo na tabela
-    tableProducts.setModel(tableModel);
-    tableProducts.setVisible(true);
-    
-    labelReturn.setText("Listagem da Tabela com sucesso.");
+                Object[] row = {id, nome, quantidade, preco, receita};
+                tableModel.addRow(row);
+            }
 
-    st.close();
-    con.close();
+            tableProducts.setModel(tableModel);
+            tableProducts.setVisible(true);
 
-} catch (Exception e) {
-    System.out.println("Erro: " + e);
-    labelReturn.setText("LISTAR - Problemas na conexão. Verifique a digitação dos nomes e a existência da fonte de dados. \nRecompile e execute novamente.");
-}
+            labelReturn.setText("Listagem da Tabela com sucesso.");
+
+            st.close();
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println("Erro: " + e);
+            labelReturn.setText("LISTAR - Problemas na conexão. Verifique a digitação dos nomes e a existência da fonte de dados. \nRecompile e execute novamente.");
+        }
 
     }//GEN-LAST:event_btnReadActionPerformed
+
+    private void comboPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPrescriptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboPrescriptionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,9 +411,11 @@ public class ProductsForm extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboPrescription;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCode;
     private javax.swing.JLabel labelName;
+    private javax.swing.JLabel labelPrescription;
     private javax.swing.JLabel labelPrice;
     private javax.swing.JLabel labelQuantity;
     private javax.swing.JLabel labelReturn;

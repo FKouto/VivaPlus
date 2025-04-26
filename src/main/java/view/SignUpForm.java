@@ -103,6 +103,11 @@ public class SignUpForm extends javax.swing.JFrame {
         cBoxSelectRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cBoxSelectRole.setBorder(null);
         cBoxSelectRole.setPreferredSize(new java.awt.Dimension(353, 30));
+        cBoxSelectRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxSelectRoleActionPerformed(evt);
+            }
+        });
         pnPanel.add(cBoxSelectRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 124, -1, -1));
         pnPanel.add(backgroundFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 450));
 
@@ -143,6 +148,10 @@ public class SignUpForm extends javax.swing.JFrame {
         goToLoginForm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnLoginActionPerformed
+
+    private void cBoxSelectRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxSelectRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cBoxSelectRoleActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
