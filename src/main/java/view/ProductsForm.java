@@ -15,7 +15,7 @@ public class ProductsForm extends javax.swing.JFrame {
         initComponents();
         
         // Centraliza a janela na tela
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
 
         // Impede que a janela seja redimensionada
         this.setResizable(false);
