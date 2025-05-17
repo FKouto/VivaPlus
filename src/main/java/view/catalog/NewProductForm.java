@@ -35,6 +35,8 @@ public class NewProductForm extends javax.swing.JFrame {
         txtNameProduct.setBorder(null);
         txtNameProduct.setFocusable(true);
         cBoxPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+        
+        setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -75,22 +77,27 @@ public class NewProductForm extends javax.swing.JFrame {
         cBoxPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cBoxPrescription.setBorder(null);
         cBoxPrescription.setPreferredSize(new java.awt.Dimension(353, 30));
-        pnPanel.add(cBoxPrescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 308, 340, -1));
+        cBoxPrescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxPrescriptionActionPerformed(evt);
+            }
+        });
+        pnPanel.add(cBoxPrescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 298, 353, -1));
 
         txtPriceProduct.setBorder(null);
         txtPriceProduct.setMargin(new java.awt.Insets(8, 8, 8, 8));
         txtPriceProduct.setPreferredSize(new java.awt.Dimension(353, 30));
-        pnPanel.add(txtPriceProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 232, 340, -1));
+        pnPanel.add(txtPriceProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 229, 353, -1));
 
         txtNameProduct.setBorder(null);
         txtNameProduct.setMargin(new java.awt.Insets(8, 8, 8, 8));
         txtNameProduct.setPreferredSize(new java.awt.Dimension(353, 30));
-        pnPanel.add(txtNameProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 80, 340, -1));
+        pnPanel.add(txtNameProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 353, -1));
 
         txtQuantityProduct.setBorder(null);
         txtQuantityProduct.setMargin(new java.awt.Insets(8, 8, 8, 8));
         txtQuantityProduct.setPreferredSize(new java.awt.Dimension(353, 30));
-        pnPanel.add(txtQuantityProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 156, 340, -1));
+        pnPanel.add(txtQuantityProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 159, 353, -1));
         pnPanel.add(backgroundFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,7 +117,15 @@ public class NewProductForm extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+    
+    private void cBoxPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {
+    // lógica aqui
+    }
 
+    private void txtIdProductActionPerformed(java.awt.event.ActionEvent evt) {
+        // lógica aqui
+    }
+    
     private void btnSaveProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProductActionPerformed
         try (Connection con = conectar();
              PreparedStatement pst = con.prepareStatement(

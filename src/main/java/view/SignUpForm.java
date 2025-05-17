@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class SignUpForm extends javax.swing.JFrame {
 
@@ -9,7 +10,9 @@ public class SignUpForm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(null);
-
+        
+        setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
+        
         // Configuração do background
         backgroundFrame.setBackgroundFrame("images/background-signup.svg", 660, 450);
 
