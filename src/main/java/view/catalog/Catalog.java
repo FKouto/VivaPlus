@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import view.LoginForm;
 import view.catalog.NewProductForm;
@@ -46,6 +47,7 @@ public class Catalog extends javax.swing.JFrame {
         btnExit.setForeground(new Color(0, 0, 0, 0));
         btnExit.setFocusPainted(false);
         
+        setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
     }
 
     
@@ -64,6 +66,7 @@ public class Catalog extends javax.swing.JFrame {
         backgroundFrame = new view.SvgFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
 
         pnPanel.setMaximumSize(new java.awt.Dimension(1920, 1080));
         pnPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,6 +130,7 @@ public class Catalog extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableProducts.setMaximumSize(new java.awt.Dimension(1856, 920));
         jScrollPane2.setViewportView(tableProducts);
 
         pnPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 80, -1, -1));

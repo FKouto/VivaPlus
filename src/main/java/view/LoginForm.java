@@ -1,15 +1,18 @@
 package view;
 
 import view.catalog.Catalog;
-import java.awt.Color;
+import java.awt.*;
+import javax.swing.ImageIcon;
 
 public class LoginForm extends javax.swing.JFrame {
-
+    
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(null);
+        
+        setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
 
         // Configuração do frame de fundo
         backgroundFrame.setBackgroundFrame("images/background-login.svg", 660, 450);
