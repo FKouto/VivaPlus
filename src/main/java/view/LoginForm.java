@@ -15,7 +15,7 @@ public class LoginForm extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
 
         // Configuração do frame de fundo
-        backgroundFrame.setBackgroundFrame("images/background-login.svg", 660, 450);
+        svgFrame1.setBackgroundFrame("images/background-login.svg", 660, 450);
 
         // Configuração do botão de login
         btnLogin.setContentAreaFilled(false);
@@ -61,7 +61,7 @@ public class LoginForm extends javax.swing.JFrame {
         txtSenha = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        backgroundFrame = new view.SvgFrame();
+        svgFrame1 = new view.SvgFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +86,7 @@ public class LoginForm extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        pnPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 284, -1, -1));
+        pnPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, -1, -1));
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(null);
@@ -97,7 +97,9 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         pnPanel.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 385, -1, -1));
-        pnPanel.add(backgroundFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 450));
+
+        svgFrame1.setText("svgFrame1");
+        pnPanel.add(svgFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 610, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,10 +148,10 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.SvgFrame backgroundFrame;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel pnPanel;
+    private view.SvgFrame svgFrame1;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
