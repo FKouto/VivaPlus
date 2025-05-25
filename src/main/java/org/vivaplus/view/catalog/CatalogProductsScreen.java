@@ -20,8 +20,8 @@ import java.util.Locale;
  */
 public class CatalogProductsScreen extends javax.swing.JFrame {
 
-    private TableRowSorter<DefaultTableModel> sorter;
     private final List<Drug> sacola = new ArrayList<>();
+    private TableRowSorter<DefaultTableModel> sorter;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnAddMed;

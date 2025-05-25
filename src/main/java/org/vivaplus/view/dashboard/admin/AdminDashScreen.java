@@ -14,6 +14,17 @@ import java.util.List;
  * @author couto
  */
 public class AdminDashScreen extends javax.swing.JFrame {
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.vivaplus.view.BackgroundLoad background;
+    private javax.swing.JButton btnDeleteProfile;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnUpdateRole;
+    private javax.swing.JPanel jPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> roleComboBox;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTable userTable;
+
     // Construtor
     public AdminDashScreen() {
         initComponents();
@@ -43,6 +54,14 @@ public class AdminDashScreen extends javax.swing.JFrame {
         loadUsers();
     }
 
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminDashScreen().setVisible(true);
+            }
+        });
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -63,15 +82,15 @@ public class AdminDashScreen extends javax.swing.JFrame {
         jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
+                new Object[][]{
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String[]{
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
         ));
         jScrollPane1.setViewportView(userTable);
 
@@ -102,7 +121,7 @@ public class AdminDashScreen extends javax.swing.JFrame {
         });
         jPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 16, 75, 32));
 
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
         jPanel.add(roleComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 121, 33));
 
         background.setText("background");
@@ -111,16 +130,16 @@ public class AdminDashScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,24 +213,5 @@ public class AdminDashScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ID do usuário inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminDashScreen().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.vivaplus.view.BackgroundLoad background;
-    private javax.swing.JButton btnDeleteProfile;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnUpdateRole;
-    private javax.swing.JPanel jPanel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> roleComboBox;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }

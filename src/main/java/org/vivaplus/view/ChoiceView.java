@@ -14,19 +14,24 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
  * @author couto
  */
 public class ChoiceView extends javax.swing.JFrame {
 
     private User user;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.vivaplus.view.BackgroundLoad background;
+    private javax.swing.JButton btnCatalog;
+    private javax.swing.JButton btnPrivAccess;
+    private javax.swing.JButton btnSair;
+    private javax.swing.JPanel jPanel;
 
     public ChoiceView() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Viva+ | Visualizar");
-        
+
     }
 
     public ChoiceView(User user) {
@@ -53,6 +58,18 @@ public class ChoiceView extends javax.swing.JFrame {
         showPersonalizedBackground(user);
     }
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                User user = new User();
+                new ChoiceView().setVisible(true);
+            }
+        });
+    }
+
     private void showPersonalizedBackground(User user) {
         if (user != null) {
             // Comparação utilizando o enum diretamente
@@ -66,7 +83,7 @@ public class ChoiceView extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void openDashRole(User user) {
         if (user != null) {
             // Comparação utilizando o enum diretamente
@@ -82,7 +99,6 @@ public class ChoiceView extends javax.swing.JFrame {
             }
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,12 +144,12 @@ public class ChoiceView extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -149,24 +165,5 @@ public class ChoiceView extends javax.swing.JFrame {
         openDashRole(user);
         System.out.println("Entrou no botão de acesso privado");
     }//GEN-LAST:event_btnPrivAccessActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                User user = new User();
-                new ChoiceView().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.vivaplus.view.BackgroundLoad background;
-    private javax.swing.JButton btnCatalog;
-    private javax.swing.JButton btnPrivAccess;
-    private javax.swing.JButton btnSair;
-    private javax.swing.JPanel jPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,10 +3,17 @@ package org.vivaplus.view;
 import java.awt.*;
 
 /**
- *
  * @author couto
  */
 public class RegisterScreen extends javax.swing.JFrame {
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.vivaplus.view.BackgroundLoad background;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JTextField txtCip;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPasswordConfirm;
     public RegisterScreen() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -31,6 +38,14 @@ public class RegisterScreen extends javax.swing.JFrame {
         btnRegister.setOpaque(false);
         btnRegister.setForeground(new Color(0, 0, 0, 0));
         btnRegister.setFocusPainted(false);
+    }
+
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegisterScreen().setVisible(true);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -100,22 +115,5 @@ public class RegisterScreen extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao registrar o usuário.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegisterScreen().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.vivaplus.view.BackgroundLoad background;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JTextField txtCip;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JPasswordField txtPasswordConfirm;
     // End of variables declaration//GEN-END:variables
 }

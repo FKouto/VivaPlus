@@ -23,6 +23,7 @@ public class AddNewProductScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtPresc;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtQuant;
+
     public AddNewProductScreen() {
         initComponents();
         this.setLocationRelativeTo(null);

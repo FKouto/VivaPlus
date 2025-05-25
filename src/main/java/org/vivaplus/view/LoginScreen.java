@@ -10,6 +10,13 @@ import java.awt.*;
  */
 public class LoginScreen extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.vivaplus.view.BackgroundLoad background;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JPanel jPanel;
+    private javax.swing.JTextField txtCip;
+    private javax.swing.JPasswordField txtPassword;
     public LoginScreen() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,6 +37,14 @@ public class LoginScreen extends javax.swing.JFrame {
         txtCip.setBorder(null);
         txtPassword.setOpaque(false);
         txtPassword.setBorder(null);
+    }
+
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoginScreen().setVisible(true);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -116,21 +131,5 @@ public class LoginScreen extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "CIP ou senha inválidos.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginScreen().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.vivaplus.view.BackgroundLoad background;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JPanel jPanel;
-    private javax.swing.JTextField txtCip;
-    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
