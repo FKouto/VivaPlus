@@ -14,16 +14,16 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
-    private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnAlterar;
+    public javax.swing.JButton btnBuscar;
     private javax.swing.JComboBox<String> comboPrescription;
     private javax.swing.JPanel jPanel;
     private javax.swing.JTextField txtBatch;
     private javax.swing.JTextField txtExpirationDate;
-    private javax.swing.JTextField txtProductId;
+    public javax.swing.JTextField txtProductId;
     private javax.swing.JTextField txtProductName;
     private javax.swing.JTextField txtProductPrice;
-    private javax.swing.JTextField txtProductQuantity;
+    public javax.swing.JTextField txtProductQuantity;
     // End of variables declaration//GEN-END:variables
 
     public UpdateProdManagerScreen() {
