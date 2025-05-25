@@ -44,7 +44,7 @@ public class RegisterScreen extends javax.swing.JFrame {
 
         txtPassword.setOpaque(false);
         txtPassword.setBorder(null);
-        
+
         txtPasswordConfirm.setOpaque(false);
         txtPasswordConfirm.setBorder(null);
 
