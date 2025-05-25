@@ -6,6 +6,7 @@ import java.awt.*;
  * @author couto
  */
 public class RegisterScreen extends javax.swing.JFrame {
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnLogin;
@@ -14,30 +15,11 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JPasswordField txtPasswordConfirm;
+    // End of variables declaration//GEN-END:variables
+
     public RegisterScreen() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Viva+ - Login");
-        background.setBackgroundPanel("images/background-register.svg", 660, 450);
-        txtName.setOpaque(false);
-        txtName.setBorder(null);
-        txtCip.setOpaque(false);
-        txtCip.setBorder(null);
-        txtPassword.setOpaque(false);
-        txtPassword.setBorder(null);
-        txtPasswordConfirm.setOpaque(false);
-        txtPasswordConfirm.setBorder(null);
-        btnLogin.setContentAreaFilled(false);
-        btnLogin.setBorderPainted(false);
-        btnLogin.setOpaque(false);
-        btnLogin.setForeground(new Color(0, 0, 0, 0));
-        btnLogin.setFocusPainted(false);
-        btnRegister.setContentAreaFilled(false);
-        btnRegister.setBorderPainted(false);
-        btnRegister.setOpaque(false);
-        btnRegister.setForeground(new Color(0, 0, 0, 0));
-        btnRegister.setFocusPainted(false);
+        settingsComponents();
     }
 
     public static void main(String[] args) {
@@ -46,6 +28,37 @@ public class RegisterScreen extends javax.swing.JFrame {
                 new RegisterScreen().setVisible(true);
             }
         });
+    }
+
+    public void settingsComponents() {
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ | Cadastro");
+        background.setBackgroundPanel("images/background-register.svg", 660, 450);
+
+        txtName.setOpaque(false);
+        txtName.setBorder(null);
+
+        txtCip.setOpaque(false);
+        txtCip.setBorder(null);
+
+        txtPassword.setOpaque(false);
+        txtPassword.setBorder(null);
+        
+        txtPasswordConfirm.setOpaque(false);
+        txtPasswordConfirm.setBorder(null);
+
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setBorderPainted(false);
+        btnLogin.setOpaque(false);
+        btnLogin.setForeground(new Color(0, 0, 0, 0));
+        btnLogin.setFocusPainted(false);
+
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setBorderPainted(false);
+        btnRegister.setOpaque(false);
+        btnRegister.setForeground(new Color(0, 0, 0, 0));
+        btnRegister.setFocusPainted(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -115,5 +128,4 @@ public class RegisterScreen extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao registrar o usuário.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
-    // End of variables declaration//GEN-END:variables
 }
