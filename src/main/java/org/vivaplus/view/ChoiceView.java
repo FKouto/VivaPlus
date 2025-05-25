@@ -31,6 +31,7 @@ public class ChoiceView extends javax.swing.JFrame {
 
     public ChoiceView(User user) {
         initComponents();
+        showPersonalizedBackground(user);
         settingComponents();
     }
 
@@ -67,8 +68,6 @@ public class ChoiceView extends javax.swing.JFrame {
         btnSair.setOpaque(false);
         btnSair.setForeground(new Color(0, 0, 0, 0));
         btnSair.setFocusPainted(false);
-
-        showPersonalizedBackground(user);
     }
 
     private void showPersonalizedBackground(User user) {
