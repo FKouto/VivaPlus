@@ -111,4 +111,24 @@ public class UserDAO {
             return false;
         }
     }
+
+    public User getUserById(int userId) {
+        String sql = "SELECT id, cip, name, role FROM users WHERE id = ?";
+        User user = null;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new User();
+                    user.setId(String.valueOf(rs.getInt("id")));
+                    user.setCip(rs.getString("cip"));
+                    user.setName(rs.getString("name"));
+                    user.setRole(Roles.valueOf(rs.getString("role")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }
