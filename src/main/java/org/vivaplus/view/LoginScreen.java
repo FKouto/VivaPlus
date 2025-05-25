@@ -17,26 +17,11 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel;
     private javax.swing.JTextField txtCip;
     private javax.swing.JPasswordField txtPassword;
+    // End of variables declaration//GEN-END:variables
+
     public LoginScreen() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Viva+ - Login");
-        background.setBackgroundPanel("images/FRAME.svg", 660, 450);
-        btnLogin.setContentAreaFilled(false);
-        btnLogin.setBorderPainted(false);
-        btnLogin.setOpaque(false);
-        btnLogin.setForeground(new Color(0, 0, 0, 0));
-        btnLogin.setFocusPainted(false);
-        btnRegister.setContentAreaFilled(false);
-        btnRegister.setBorderPainted(false);
-        btnRegister.setOpaque(false);
-        btnRegister.setForeground(new Color(0, 0, 0, 0));
-        btnRegister.setFocusPainted(false);
-        txtCip.setOpaque(false);
-        txtCip.setBorder(null);
-        txtPassword.setOpaque(false);
-        txtPassword.setBorder(null);
+        settingsComponents();
     }
 
     public static void main(String[] args) {
@@ -45,6 +30,31 @@ public class LoginScreen extends javax.swing.JFrame {
                 new LoginScreen().setVisible(true);
             }
         });
+    }
+
+    public void settingsComponents() {
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ - Login");
+        background.setBackgroundPanel("images/background-login.svg", 660, 450);
+
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setBorderPainted(false);
+        btnLogin.setOpaque(false);
+        btnLogin.setForeground(new Color(0, 0, 0, 0));
+        btnLogin.setFocusPainted(false);
+
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setBorderPainted(false);
+        btnRegister.setOpaque(false);
+        btnRegister.setForeground(new Color(0, 0, 0, 0));
+        btnRegister.setFocusPainted(false);
+
+        txtCip.setOpaque(false);
+        txtCip.setBorder(null);
+
+        txtPassword.setOpaque(false);
+        txtPassword.setBorder(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -131,5 +141,4 @@ public class LoginScreen extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "CIP ou senha inválidos.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-    // End of variables declaration//GEN-END:variables
 }
