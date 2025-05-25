@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
         features = "src/test/resources/features",
         plugin = { "pretty" },
         glue = { "steps" },
-        tags = "@UpdateProduct"
+        tags = "@ChangeRole"
 )
 public class CucumberRunner {
 }
