@@ -16,6 +16,7 @@ import java.util.List;
  * @author couto
  */
 public class ManagerDashScreen extends javax.swing.JFrame {
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnDeleteProfile;
@@ -29,45 +30,11 @@ public class ManagerDashScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> roleComboBox;
     private javax.swing.JTextField txtID;
     private javax.swing.JTable userTable;
+    // End of variables declaration//GEN-END:variables
+
     public ManagerDashScreen() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Viva+ | Manager");
-        background.setBackgroundPanel("images/background-update-med-manager.svg", 900, 600);
-        btnUpdateRole.setContentAreaFilled(false);
-        btnUpdateRole.setBorderPainted(false);
-        btnUpdateRole.setOpaque(false);
-        btnUpdateRole.setForeground(new Color(0, 0, 0, 0));
-        btnUpdateRole.setFocusPainted(false);
-        btnDeleteProfile.setContentAreaFilled(false);
-        btnDeleteProfile.setBorderPainted(false);
-        btnDeleteProfile.setOpaque(false);
-        btnDeleteProfile.setForeground(new Color(0, 0, 0, 0));
-        btnDeleteProfile.setFocusPainted(false);
-        btnLogout.setContentAreaFilled(false);
-        btnLogout.setBorderPainted(false);
-        btnLogout.setOpaque(false);
-        btnLogout.setForeground(new Color(0, 0, 0, 0));
-        btnLogout.setFocusPainted(false);
-        btnUpdateMed.setContentAreaFilled(false);
-        btnUpdateMed.setBorderPainted(false);
-        btnUpdateMed.setOpaque(false);
-        btnUpdateMed.setForeground(new Color(0, 0, 0, 0));
-        btnUpdateMed.setFocusPainted(false);
-        txtID.setOpaque(false);
-        txtID.setBorder(null);
-        txtID.setBackground(new Color(0, 0, 0, 0));
-        roleComboBox.setOpaque(false);
-        roleComboBox.setBorder(null);
-        roleComboBox.setBackground(new Color(0, 0, 0, 0));
-        roleComboBox.setForeground(new Color(0, 0, 0, 0));
-        roleComboBox.setFocusable(false);
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "ADMIN"}));
-
-        // Carrega os dados nas tabelas
-        loadUsers();
-        loadProducts();
+        settingsComponents();
     }
 
     public static void main(String[] args) {
@@ -76,6 +43,51 @@ public class ManagerDashScreen extends javax.swing.JFrame {
                 new ManagerDashScreen().setVisible(true);
             }
         });
+    }
+
+    public void settingsComponents() {
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ | Manager");
+        background.setBackgroundPanel("images/background-update-med-manager.svg", 900, 600);
+
+        btnUpdateRole.setContentAreaFilled(false);
+        btnUpdateRole.setBorderPainted(false);
+        btnUpdateRole.setOpaque(false);
+        btnUpdateRole.setForeground(new Color(0, 0, 0, 0));
+        btnUpdateRole.setFocusPainted(false);
+
+        btnDeleteProfile.setContentAreaFilled(false);
+        btnDeleteProfile.setBorderPainted(false);
+        btnDeleteProfile.setOpaque(false);
+        btnDeleteProfile.setForeground(new Color(0, 0, 0, 0));
+        btnDeleteProfile.setFocusPainted(false);
+
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setBorderPainted(false);
+        btnLogout.setOpaque(false);
+        btnLogout.setForeground(new Color(0, 0, 0, 0));
+        btnLogout.setFocusPainted(false);
+
+        btnUpdateMed.setContentAreaFilled(false);
+        btnUpdateMed.setBorderPainted(false);
+        btnUpdateMed.setOpaque(false);
+        btnUpdateMed.setForeground(new Color(0, 0, 0, 0));
+        btnUpdateMed.setFocusPainted(false);
+
+        txtID.setOpaque(false);
+        txtID.setBorder(null);
+        txtID.setBackground(new Color(0, 0, 0, 0));
+
+        roleComboBox.setOpaque(false);
+        roleComboBox.setBorder(null);
+        roleComboBox.setBackground(new Color(0, 0, 0, 0));
+        roleComboBox.setForeground(new Color(0, 0, 0, 0));
+        roleComboBox.setFocusable(false);
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "ADMIN"}));
+
+        loadUsers();
+        loadProducts();
     }
 
     @SuppressWarnings("unchecked")
@@ -187,21 +199,21 @@ public class ManagerDashScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRoleActionPerformed
+    private void btnUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {
         updateUserRole();
-    }//GEN-LAST:event_btnUpdateRoleActionPerformed
+    }
 
-    private void btnDeleteProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProfileActionPerformed
+    private void btnDeleteProfileActionPerformed(java.awt.event.ActionEvent evt) {
         deleteUserProfile();
-    }//GEN-LAST:event_btnDeleteProfileActionPerformed
+    }
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {
         LoginScreen goLogin = new LoginScreen();
         goLogin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }
 
-    private void btnUpdateMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateMedActionPerformed
+    private void btnUpdateMedActionPerformed(java.awt.event.ActionEvent evt) {
         UpdateProdManagerScreen updateProdManager = new UpdateProdManagerScreen();
         updateProdManager.setVisible(true);
         updateProdManager.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -210,7 +222,7 @@ public class ManagerDashScreen extends javax.swing.JFrame {
                 loadProducts();
             }
         });
-    }//GEN-LAST:event_btnUpdateMedActionPerformed
+    }
 
     private void loadUsers() {
         UserDAO userDAO = new UserDAO();
@@ -274,5 +286,4 @@ public class ManagerDashScreen extends javax.swing.JFrame {
         }
         productTable.setModel(productModel);
     }
-    // End of variables declaration//GEN-END:variables
 }
