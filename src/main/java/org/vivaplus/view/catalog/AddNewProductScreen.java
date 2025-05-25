@@ -23,14 +23,11 @@ public class AddNewProductScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtPresc;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtQuant;
+    // End of variables declaration//GEN-END:variables
 
     public AddNewProductScreen() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Viva+ - Novo Produto");
-        background.setBackgroundPanel("images/new-product.svg", 660, 450);
-        configureFields();
+        settingsComponents();
     }
 
     public static void main(String[] args) {
@@ -41,15 +38,24 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         });
     }
 
-    private void configureFields() {
+    private void settingsComponents() {
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ | Novo Produto");
+        background.setBackgroundPanel("images/new-product.svg", 660, 450);
+
         txtName.setOpaque(false);
         txtName.setBorder(null);
+
         txtQuant.setOpaque(false);
         txtQuant.setBorder(null);
+
         txtBatch.setOpaque(false);
         txtBatch.setBorder(null);
+
         txtPrice.setOpaque(false);
         txtPrice.setBorder(null);
+
         txtDate.setOpaque(false);
         txtDate.setBorder(null);
 
@@ -57,7 +63,6 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         txtPresc.setOpaque(false);
         txtPresc.setBorder(null);
 
-        // Configurar botões
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.setBorderPainted(false);
         btnCancelar.setOpaque(false);
@@ -182,5 +187,4 @@ public class AddNewProductScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Prescrição inválida. Use valores válidos.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-    // End of variables declaration//GEN-END:variables
 }

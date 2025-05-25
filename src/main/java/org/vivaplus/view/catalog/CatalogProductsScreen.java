@@ -21,7 +21,9 @@ import java.util.Locale;
 public class CatalogProductsScreen extends javax.swing.JFrame {
 
     private final List<Drug> sacola = new ArrayList<>();
+
     private TableRowSorter<DefaultTableModel> sorter;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnAddMed;
@@ -32,39 +34,55 @@ public class CatalogProductsScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbCatalog;
     private javax.swing.JTextField txtSearch;
+    // End of variables declaration//GEN-END:variables
 
-    /**
-     * Creates new form CatalogProductsScreen
-     */
     public CatalogProductsScreen() {
         initComponents();
+        settingsComponents();
+    }
+
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CatalogProductsScreen().setVisible(true);
+            }
+        });
+    }
+
+    public void settingsComponents() {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setResizable(false);
         this.setLayout(null);
+        this.setTitle("Viva+ Drogaria | Catálogo de Produtos");
         background.setBackgroundPanel("images/background-catalog.svg", 1920, 1080);
-        this.setTitle("Viva+ Drogaria");
+
         btnAddMed.setContentAreaFilled(false);
         btnAddMed.setBorderPainted(false);
         btnAddMed.setOpaque(false);
         btnAddMed.setForeground(new Color(0, 0, 0, 0));
         btnAddMed.setFocusPainted(false);
+
         btnAddSacola.setContentAreaFilled(false);
         btnAddSacola.setBorderPainted(false);
         btnAddSacola.setOpaque(false);
         btnAddSacola.setForeground(new Color(0, 0, 0, 0));
         btnAddSacola.setFocusPainted(false);
+
         btnViewBag.setContentAreaFilled(false);
         btnViewBag.setBorderPainted(false);
         btnViewBag.setOpaque(false);
         btnViewBag.setForeground(new Color(0, 0, 0, 0));
         btnViewBag.setFocusPainted(false);
-        txtSearch.setOpaque(false);
-        txtSearch.setBorder(null);
+
         btnSair.setContentAreaFilled(false);
         btnSair.setBorderPainted(false);
         btnSair.setOpaque(false);
         btnSair.setForeground(new Color(0, 0, 0, 0));
         btnSair.setFocusPainted(false);
+
+        txtSearch.setOpaque(false);
+        txtSearch.setBorder(null);
+
         tbCatalog.setFont(new Font("Arial", Font.PLAIN, 14));
         tbCatalog.setRowHeight(30);
         tbCatalog.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
@@ -77,16 +95,9 @@ public class CatalogProductsScreen extends javax.swing.JFrame {
         DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
         centralizado.setHorizontalAlignment(SwingConstants.CENTER);
         tbCatalog.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+
         carregarTabelaProdutos();
         configurarFiltroPesquisa();
-    }
-
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CatalogProductsScreen().setVisible(true);
-            }
-        });
     }
 
     @SuppressWarnings("unchecked")
@@ -320,5 +331,4 @@ public class CatalogProductsScreen extends javax.swing.JFrame {
             }
         });
     }
-    // End of variables declaration//GEN-END:variables
 }
