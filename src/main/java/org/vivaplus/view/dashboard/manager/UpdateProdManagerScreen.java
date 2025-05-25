@@ -76,11 +76,6 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
         txtExpirationDate.setOpaque(false);
         txtExpirationDate.setBorder(null);
 
-        comboPrescription.setOpaque(false);
-        comboPrescription.setBorder(null);
-        comboPrescription.setBackground(new Color(0, 0, 0, 0));
-        comboPrescription.setForeground(new Color(0, 0, 0, 0));
-        comboPrescription.setFocusable(false);
         comboPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"YES", "NO"}));
     }
 
@@ -104,14 +99,14 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
 
         jPanel.setPreferredSize(new java.awt.Dimension(500, 400));
         jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel.add(txtProductId, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 83, 232, 35));
-        jPanel.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 83, 232, 35));
-        jPanel.add(txtProductQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 150, 232, 35));
-        jPanel.add(txtProductPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 232, 35));
-        jPanel.add(txtBatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 217, 232, 35));
-        jPanel.add(txtExpirationDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 217, 232, 35));
+        jPanel.add(txtProductId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 83, 230, 35));
+        jPanel.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 83, 230, 35));
+        jPanel.add(txtProductQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 230, 35));
+        jPanel.add(txtProductPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 150, 230, 35));
+        jPanel.add(txtBatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 217, 230, 35));
+        jPanel.add(txtExpirationDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 217, 230, 35));
 
-        comboPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+        comboPrescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel.add(comboPrescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 284, 484, 35));
 
         btnBuscar.setText("Buscar Produto");
@@ -136,16 +131,16 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

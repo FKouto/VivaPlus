@@ -16,11 +16,11 @@ public class AddNewProductScreen extends javax.swing.JFrame {
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> comboPresc;
     private javax.swing.JPanel jPanel;
     private javax.swing.JTextField txtBatch;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtName;
-    private javax.swing.JComboBox<String> txtPresc;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtQuant;
     // End of variables declaration//GEN-END:variables
@@ -59,10 +59,6 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         txtDate.setOpaque(false);
         txtDate.setBorder(null);
 
-        txtPresc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"YES", "NO"}));
-        txtPresc.setOpaque(false);
-        txtPresc.setBorder(null);
-
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.setBorderPainted(false);
         btnCancelar.setOpaque(false);
@@ -74,6 +70,11 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         btnSalvar.setOpaque(false);
         btnSalvar.setForeground(new Color(0, 0, 0, 0));
         btnSalvar.setFocusPainted(false);
+
+        comboPresc.setOpaque(false);
+        comboPresc.setBorder(null);
+        comboPresc.setFocusable(false);
+        comboPresc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"YES", "NO"}));
     }
 
     @SuppressWarnings("unchecked")
@@ -86,21 +87,23 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         txtBatch = new javax.swing.JTextField();
         txtDate = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
-        txtPresc = new javax.swing.JComboBox<>();
+        comboPresc = new javax.swing.JComboBox<>();
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         background = new org.vivaplus.view.BackgroundLoad();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jPanel.setPreferredSize(new java.awt.Dimension(660, 450));
         jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 85, 363, 35));
-        jPanel.add(txtQuant, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 157, 363, 35));
-        jPanel.add(txtBatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 229, 176, 35));
-        jPanel.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 229, 176, 35));
-        jPanel.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 301, 177, 35));
+        jPanel.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 85, 360, 35));
+        jPanel.add(txtQuant, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 157, 360, 35));
+        jPanel.add(txtBatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 229, 170, 35));
+        jPanel.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 229, 170, 35));
+        jPanel.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 301, 170, 35));
 
-        txtPresc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
-        jPanel.add(txtPresc, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 301, 177, 35));
+        comboPresc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel.add(comboPresc, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 301, 177, 35));
 
         btnSalvar.setText("Salvar");
         btnSalvar.setToolTipText("");
@@ -125,12 +128,12 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -146,7 +149,7 @@ public class AddNewProductScreen extends javax.swing.JFrame {
         String lote = txtBatch.getText();
         String validade = txtDate.getText();
         String precoStr = txtPrice.getText();
-        String prescricao = (String) txtPresc.getSelectedItem();
+        String prescricao = (String) comboPresc.getSelectedItem();
 
         if (nome.isEmpty() || quantidadeStr.isEmpty() || lote.isEmpty() || validade.isEmpty() || precoStr.isEmpty() || prescricao == null) {
             JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);

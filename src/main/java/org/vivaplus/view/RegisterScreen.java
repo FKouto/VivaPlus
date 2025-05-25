@@ -75,10 +75,10 @@ public class RegisterScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 84, 363, 35));
-        getContentPane().add(txtCip, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 160, 363, 35));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 236, 363, 35));
-        getContentPane().add(txtPasswordConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 312, 363, 35));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 84, 360, 35));
+        getContentPane().add(txtCip, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 160, 360, 35));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 236, 360, 35));
+        getContentPane().add(txtPasswordConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 312, 360, 35));
 
         btnLogin.setText("Voltar Login");
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 361, 119, 33));
