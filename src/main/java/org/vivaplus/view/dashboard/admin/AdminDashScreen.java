@@ -6,6 +6,7 @@ import org.vivaplus.model.enums.Roles;
 import org.vivaplus.view.LoginScreen;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @author couto
  */
 public class AdminDashScreen extends javax.swing.JFrame {
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.vivaplus.view.BackgroundLoad background;
     private javax.swing.JButton btnDeleteProfile;
@@ -24,34 +26,11 @@ public class AdminDashScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> roleComboBox;
     private javax.swing.JTextField txtID;
     private javax.swing.JTable userTable;
+    // End of variables declaration//GEN-END:variables
 
-    // Construtor
     public AdminDashScreen() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Viva+ | Admin");
-        background.setBackgroundPanel("images/background-admin.svg", 600, 600);
-        btnUpdateRole.setContentAreaFilled(false);
-        btnUpdateRole.setBorderPainted(false);
-        btnUpdateRole.setOpaque(false);
-        btnUpdateRole.setForeground(new Color(0, 0, 0, 0));
-        btnUpdateRole.setFocusPainted(false);
-        btnDeleteProfile.setContentAreaFilled(false);
-        btnDeleteProfile.setBorderPainted(false);
-        btnDeleteProfile.setOpaque(false);
-        btnDeleteProfile.setForeground(new Color(0, 0, 0, 0));
-        btnDeleteProfile.setFocusPainted(false);
-        btnLogout.setContentAreaFilled(false);
-        btnLogout.setBorderPainted(false);
-        btnLogout.setOpaque(false);
-        btnLogout.setForeground(new Color(0, 0, 0, 0));
-        btnLogout.setFocusPainted(false);
-        txtID.setOpaque(false);
-        txtID.setBorder(null);
-
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "ADMIN"}));
-        loadUsers();
+        settingsComponents();
     }
 
     public static void main(String[] args) {
@@ -60,6 +39,51 @@ public class AdminDashScreen extends javax.swing.JFrame {
                 new AdminDashScreen().setVisible(true);
             }
         });
+    }
+
+    public void settingsComponents() {
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ | Admin");
+        background.setBackgroundPanel("images/background-admin.svg", 600, 600);
+
+        userTable.setFont(new Font("Arial", Font.PLAIN, 14));
+        userTable.setRowHeight(30);
+        userTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
+        userTable.setBackground(Color.WHITE);
+        userTable.setForeground(Color.BLACK);
+        userTable.setSelectionBackground(new Color(184, 207, 229));
+        userTable.setSelectionForeground(Color.BLACK);
+        userTable.getTableHeader().setBackground(new Color(70, 130, 180));
+        userTable.getTableHeader().setForeground(Color.WHITE);
+        DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        userTable.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+
+        btnUpdateRole.setContentAreaFilled(false);
+        btnUpdateRole.setBorderPainted(false);
+        btnUpdateRole.setOpaque(false);
+        btnUpdateRole.setForeground(new Color(0, 0, 0, 0));
+        btnUpdateRole.setFocusPainted(false);
+
+        btnDeleteProfile.setContentAreaFilled(false);
+        btnDeleteProfile.setBorderPainted(false);
+        btnDeleteProfile.setOpaque(false);
+        btnDeleteProfile.setForeground(new Color(0, 0, 0, 0));
+        btnDeleteProfile.setFocusPainted(false);
+
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setBorderPainted(false);
+        btnLogout.setOpaque(false);
+        btnLogout.setForeground(new Color(0, 0, 0, 0));
+        btnLogout.setFocusPainted(false);
+
+        txtID.setOpaque(false);
+        txtID.setBorder(null);
+
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "MANAGER", "ADMIN"}));
+
+        loadUsers();
     }
 
     @SuppressWarnings("unchecked")
@@ -145,25 +169,24 @@ public class AdminDashScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {
         LoginScreen goLogin = new LoginScreen();
         goLogin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }
 
-    private void btnUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRoleActionPerformed
+    private void btnUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {
         updateUserRole();
-    }//GEN-LAST:event_btnUpdateRoleActionPerformed
+    }
 
-    private void btnDeleteProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProfileActionPerformed
+    private void btnDeleteProfileActionPerformed(java.awt.event.ActionEvent evt) {
         deleteUserProfile();
-    }//GEN-LAST:event_btnDeleteProfileActionPerformed
+    }
 
     private void loadUsers() {
         UserDAO userDAO = new UserDAO();
         List<User> users = userDAO.getAllUsers();
 
-        // Configura o modelo da tabela
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "CIP", "Nome", "Role"}, 0);
         for (User user : users) {
             model.addRow(new Object[]{user.getId(), user.getCip(), user.getName(), user.getRole()});
@@ -171,11 +194,9 @@ public class AdminDashScreen extends javax.swing.JFrame {
         userTable.setModel(model);
     }
 
-    // Substitua o método updateUserRole por este código corrigido.
     private void updateUserRole() {
         try {
             int userId = Integer.parseInt(txtID.getText());
-            // Converter a String para enum Roles
             String selectedRoleStr = roleComboBox.getSelectedItem().toString();
             Roles newRole = Roles.valueOf(selectedRoleStr);
 
@@ -213,5 +234,4 @@ public class AdminDashScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ID do usuário inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-    // End of variables declaration//GEN-END:variables
 }
