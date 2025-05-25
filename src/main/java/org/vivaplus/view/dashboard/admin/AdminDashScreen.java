@@ -3,62 +3,142 @@ package org.vivaplus.view.dashboard.admin;
 import org.vivaplus.model.bean.User;
 import org.vivaplus.model.dao.UserDAO;
 import org.vivaplus.model.enums.Roles;
+import org.vivaplus.view.LoginScreen;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.List;
 
-public class AdminDashScreen extends JFrame {
-    private JTable userTable;
-    private JTextField txtUserId;
-    private JComboBox<Roles> roleComboBox;
-    private JButton btnUpdateRole, btnDeleteProfile;
-
+/**
+ * @author couto
+ */
+public class AdminDashScreen extends javax.swing.JFrame {
+    // Construtor
     public AdminDashScreen() {
-        setTitle("Admin Dashboard");
-        setSize(600, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Viva+ | Admin");
+        background.setBackgroundPanel("images/background-admin.svg", 600, 600);
+        btnUpdateRole.setContentAreaFilled(false);
+        btnUpdateRole.setBorderPainted(false);
+        btnUpdateRole.setOpaque(false);
+        btnUpdateRole.setForeground(new Color(0, 0, 0, 0));
+        btnUpdateRole.setFocusPainted(false);
+        btnDeleteProfile.setContentAreaFilled(false);
+        btnDeleteProfile.setBorderPainted(false);
+        btnDeleteProfile.setOpaque(false);
+        btnDeleteProfile.setForeground(new Color(0, 0, 0, 0));
+        btnDeleteProfile.setFocusPainted(false);
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setBorderPainted(false);
+        btnLogout.setOpaque(false);
+        btnLogout.setForeground(new Color(0, 0, 0, 0));
+        btnLogout.setFocusPainted(false);
+        txtID.setOpaque(false);
+        txtID.setBorder(null);
 
-        // Layout principal
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        // Tabela de usuários
-        userTable = new JTable();
-        JScrollPane scrollPane = new JScrollPane(userTable);
-        panel.add(scrollPane);
-
-        // Campo para ID do usuário
-        JPanel inputPanel = new JPanel();
-        inputPanel.add(new JLabel("ID do Usuário:"));
-        txtUserId = new JTextField(10);
-        inputPanel.add(txtUserId);
-
-        // ComboBox para selecionar a nova role
-        inputPanel.add(new JLabel("Nova Role:"));
-        roleComboBox = new JComboBox<>(Roles.values());
-        inputPanel.add(roleComboBox);
-
-        // Botão para atualizar a role
-        btnUpdateRole = new JButton("Atualizar Role");
-        inputPanel.add(btnUpdateRole);
-
-        // Botão para excluir o perfil
-        btnDeleteProfile = new JButton("Excluir Perfil");
-        inputPanel.add(btnDeleteProfile);
-
-        panel.add(inputPanel);
-
-        // Adiciona ações aos botões
-        btnUpdateRole.addActionListener(e -> updateUserRole());
-        btnDeleteProfile.addActionListener(e -> deleteUserProfile());
-
-        add(panel);
-
-        // Carrega os usuários na tabela
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "ADMIN"}));
         loadUsers();
     }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        userTable = new javax.swing.JTable();
+        txtID = new javax.swing.JTextField();
+        btnUpdateRole = new javax.swing.JButton();
+        btnDeleteProfile = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        roleComboBox = new javax.swing.JComboBox<>();
+        background = new org.vivaplus.view.BackgroundLoad();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel.setPreferredSize(new java.awt.Dimension(600, 600));
+        jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(userTable);
+
+        jPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 56, 584, 478));
+        jPanel.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 550, 89, 33));
+
+        btnUpdateRole.setText("Atualizar Role");
+        btnUpdateRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateRoleActionPerformed(evt);
+            }
+        });
+        jPanel.add(btnUpdateRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 550, 142, 33));
+
+        btnDeleteProfile.setText("Excluir Perfil");
+        btnDeleteProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteProfileActionPerformed(evt);
+            }
+        });
+        jPanel.add(btnDeleteProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 550, 133, 33));
+
+        btnLogout.setText("Sair");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 16, 75, 32));
+
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel.add(roleComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 121, 33));
+
+        background.setText("background");
+        jPanel.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        LoginScreen goLogin = new LoginScreen();
+        goLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRoleActionPerformed
+        updateUserRole();
+    }//GEN-LAST:event_btnUpdateRoleActionPerformed
+
+    private void btnDeleteProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProfileActionPerformed
+        deleteUserProfile();
+    }//GEN-LAST:event_btnDeleteProfileActionPerformed
 
     private void loadUsers() {
         UserDAO userDAO = new UserDAO();
@@ -72,10 +152,13 @@ public class AdminDashScreen extends JFrame {
         userTable.setModel(model);
     }
 
+    // Substitua o método updateUserRole por este código corrigido.
     private void updateUserRole() {
         try {
-            int userId = Integer.parseInt(txtUserId.getText());
-            Roles newRole = (Roles) roleComboBox.getSelectedItem();
+            int userId = Integer.parseInt(txtID.getText());
+            // Converter a String para enum Roles
+            String selectedRoleStr = roleComboBox.getSelectedItem().toString();
+            Roles newRole = Roles.valueOf(selectedRoleStr);
 
             UserDAO userDAO = new UserDAO();
             boolean success = userDAO.updateUserRole(userId, newRole);
@@ -93,7 +176,7 @@ public class AdminDashScreen extends JFrame {
 
     private void deleteUserProfile() {
         try {
-            int userId = Integer.parseInt(txtUserId.getText());
+            int userId = Integer.parseInt(txtID.getText());
 
             int confirm = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir o perfil do usuário com ID: " + userId + "?", "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
@@ -112,7 +195,23 @@ public class AdminDashScreen extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new AdminDashScreen().setVisible(true));
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminDashScreen().setVisible(true);
+            }
+        });
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.vivaplus.view.BackgroundLoad background;
+    private javax.swing.JButton btnDeleteProfile;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnUpdateRole;
+    private javax.swing.JPanel jPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> roleComboBox;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTable userTable;
+    // End of variables declaration//GEN-END:variables
 }

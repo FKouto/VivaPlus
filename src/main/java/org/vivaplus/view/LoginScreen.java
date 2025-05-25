@@ -99,23 +99,15 @@ public class LoginScreen extends javax.swing.JFrame {
         LoginDAO loginDAO = new LoginDAO();
         boolean isAuthenticated = loginDAO.login(user);
 
+        // Exemplo de alteração na chamada após a autenticação no método btnLoginActionPerformed em LoginScreen.java
         if (isAuthenticated) {
             org.vivaplus.model.enums.Roles userRole = user.getRole();
 
-            if (userRole == org.vivaplus.model.enums.Roles.ADMIN) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Bem-vindo, Administrador!", "Sucesso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                new org.vivaplus.view.dashboard.admin.AdminDashScreen().setVisible(true);
+            if (userRole == org.vivaplus.model.enums.Roles.ADMIN || userRole == org.vivaplus.model.enums.Roles.MANAGER) {
+                new ChoiceView(user).setVisible(true); // usa o construtor que recebe o usuário
                 this.dispose();
-            }
-            if (userRole == org.vivaplus.model.enums.Roles.MANAGER) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Bem-vindo, Manager!", "Sucesso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                new org.vivaplus.view.dashboard.manager.ManagerDashScreen().setVisible(true);
-                this.dispose();
-            }
-            if (userRole == org.vivaplus.model.enums.Roles.BASIC) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Bem-vindo, BASIC!", "Sucesso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                CatalogProductsScreen catalogProductsScreen = new CatalogProductsScreen();
-                catalogProductsScreen.setVisible(true);
+            } else if (userRole == org.vivaplus.model.enums.Roles.BASIC) {
+                new CatalogProductsScreen().setVisible(true);
                 this.dispose();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Login realizado com sucesso!", "Sucesso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
