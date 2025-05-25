@@ -28,7 +28,7 @@ public class RegisterScreenSteps {
         setPasswordField("txtPasswordConfirm", confirmacao);
     }
 
-    @Quando("clica no botão {string}")
+    @Quando("clica no botão de registro {string}")
     public void clicarNoBotao(String botao) throws Exception {
         Method method = RegisterScreen.class.getDeclaredMethod("btnRegisterActionPerformed", ActionEvent.class);
         method.setAccessible(true);

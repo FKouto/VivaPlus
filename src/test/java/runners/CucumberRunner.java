@@ -8,7 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         plugin = { "pretty" },
-        glue = { "steps" }
+        glue = { "steps" },
+        tags = "@UpdateProduct"
 )
 public class CucumberRunner {
 }
