@@ -15,39 +15,7 @@ public class UserDAO {
     private final Connection connection;
 
     public UserDAO() {
-        // Inicialize a conexão com o banco de dados
         this.connection = DatabaseConnection.getConnection();
-    }
-
-    public boolean create(User user) {
-        String sql = "INSERT INTO users (id, name, cip, password, role) VALUES (?, ?, ?, ?, ?)";
-        Connection con = null;
-        PreparedStatement stmt = null;
-
-        try {
-            con = DatabaseConnection.getConnection();
-            stmt = con.prepareStatement(sql);
-            stmt.setString(1, user.getId());
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getCip());
-            stmt.setString(4, user.getPassword());
-            stmt.setString(5, user.getRole().name());
-
-            stmt.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        } finally {
-            DatabaseConnection.closeConnection(con);
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
     }
 
     public boolean register(User user) {
