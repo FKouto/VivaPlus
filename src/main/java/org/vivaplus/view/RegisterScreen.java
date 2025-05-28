@@ -81,6 +81,11 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(txtPasswordConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 312, 360, 35));
 
         btnLogin.setText("Voltar Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 361, 119, 33));
 
         btnRegister.setText("Registrar");
@@ -124,8 +129,17 @@ public class RegisterScreen extends javax.swing.JFrame {
 
         if (isRegistered) {
             javax.swing.JOptionPane.showMessageDialog(this, "Usuário registrado com sucesso!", "Sucesso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.setVisible(true);
+            this.dispose(); // Fecha a tela de registro
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao registrar o usuário.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        LoginScreen loginScreen = new LoginScreen();
+        loginScreen.setVisible(true);
+        this.dispose(); // Fecha a tela de registro
+    }//GEN-LAST:event_btnLoginActionPerformed
 }

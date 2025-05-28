@@ -35,7 +35,7 @@ public class LoginScreen extends javax.swing.JFrame {
     public void settingsComponents() {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setTitle("Viva+ - Login");
+        this.setTitle("Viva+ | Login");
         background.setBackgroundPanel("images/background-login.svg", 660, 450);
 
         btnLogin.setContentAreaFilled(false);
@@ -87,6 +87,11 @@ public class LoginScreen extends javax.swing.JFrame {
         jPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 284, 78, 33));
 
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         jPanel.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 385, 102, 33));
 
         background.setText("background");
@@ -141,4 +146,10 @@ public class LoginScreen extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "CIP ou senha inválidos.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+        RegisterScreen registerScreen = new RegisterScreen();
+        registerScreen.setVisible(true);
+        this.dispose();
+    }
 }

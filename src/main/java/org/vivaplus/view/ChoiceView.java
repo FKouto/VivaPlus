@@ -30,6 +30,7 @@ public class ChoiceView extends javax.swing.JFrame {
     }
 
     public ChoiceView(User user) {
+        this.user = user;
         initComponents();
         showPersonalizedBackground(user);
         settingComponents();
@@ -48,8 +49,6 @@ public class ChoiceView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Viva+ | Visualizar");
-
-        this.user = user;
 
         btnCatalog.setContentAreaFilled(false);
         btnCatalog.setBorderPainted(false);
@@ -85,14 +84,17 @@ public class ChoiceView extends javax.swing.JFrame {
     }
 
     private void openDashRole(User user) {
+        System.out.println("Chamo 1");
         if (user != null) {
             // Comparação utilizando o enum diretamente
             if (user.getRole() == Roles.ADMIN) {
+                System.out.println("Chamo ADMIN");
                 AdminDashScreen adminDash = new AdminDashScreen();
                 adminDash.setVisible(true);
                 this.dispose();
             }
             if (user.getRole() == Roles.MANAGER) {
+                System.out.println("Chamo MANAGER");
                 ManagerDashScreen managerDash = new ManagerDashScreen();
                 managerDash.setVisible(true);
                 this.dispose();

@@ -79,12 +79,7 @@ public class ManagerDashScreen extends javax.swing.JFrame {
         txtID.setBorder(null);
         txtID.setBackground(new Color(0, 0, 0, 0));
 
-        roleComboBox.setOpaque(false);
-        roleComboBox.setBorder(null);
-        roleComboBox.setBackground(new Color(0, 0, 0, 0));
-        roleComboBox.setForeground(new Color(0, 0, 0, 0));
-        roleComboBox.setFocusable(false);
-        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC", "ADMIN"}));
+        roleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"BASIC","MANAGER"}));
 
         loadUsers();
         loadProducts();
