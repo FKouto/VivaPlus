@@ -16,6 +16,7 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
     private org.vivaplus.view.BackgroundLoad background;
     public javax.swing.JButton btnAlterar;
     public javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JComboBox<String> comboPrescription;
     private javax.swing.JPanel jPanel;
     private javax.swing.JTextField txtBatch;
@@ -45,6 +46,12 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
         this.setTitle("Viva+ | Manager | Update Product");
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         background.setBackgroundPanel("images/background-update-product-manager.svg", 500, 400);
+
+        btnExcluir.setContentAreaFilled(false);
+        btnExcluir.setBorderPainted(false);
+        btnExcluir.setOpaque(false);
+        btnExcluir.setForeground(new Color(0, 0, 0, 0));
+        btnExcluir.setFocusPainted(false);
 
         btnAlterar.setContentAreaFilled(false);
         btnAlterar.setBorderPainted(false);
@@ -93,6 +100,7 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
         comboPrescription = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         background = new org.vivaplus.view.BackgroundLoad();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,7 +123,7 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 341, 234, 40));
+        jPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 341, 150, 40));
 
         btnAlterar.setText("Atualizar Produto");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +131,15 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
                 btnAlterarActionPerformed(evt);
             }
         });
-        jPanel.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 341, 234, 40));
+        jPanel.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 341, 150, 40));
+
+        btnExcluir.setText("Excluir Produto");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        jPanel.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 341, 150, 40));
 
         background.setText("background");
         jPanel.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
@@ -145,6 +161,10 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {
+        deleteProduct();
+    }
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
         fetchProduct();
@@ -206,6 +226,24 @@ public class UpdateProdManagerScreen extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Dados inválidos: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void deleteProduct(){
+        String productId = txtProductId.getText();
+        if (productId.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "O ID do produto é obrigatório.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        DrugDAO drugDAO = new DrugDAO();
+        boolean success = drugDAO.delete(productId);
+
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Produto excluído com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao excluir o produto.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -1,4 +1,3 @@
-@Register
 Feature: Cadastro Funcionario
 
   Scenario: Cadastrar Funcionario
